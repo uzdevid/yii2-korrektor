@@ -1,6 +1,6 @@
 {
   "name": "uzdevid/yii2-korrektor",
-  "description": "Yii2 Korrektor",
+  "description": "Korrektor.uz API imkoniyatlaridan Yii2 frameworkida qulay foydalanish uchun kengaytma",
   "type": "yii2-extension",
   "keywords": [
     "yii2",
