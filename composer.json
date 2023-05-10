@@ -1,0 +1,25 @@
+{
+  "name": "uzdevid/yii2-korrektor",
+  "description": "Yii2 Korrektor",
+  "type": "yii2-extension",
+  "keywords": [
+    "yii2",
+    "extension",
+    "korrektoruz"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ibragimov Diyorbek",
+      "email": "uzdevid@gmail.com"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "~2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "uzdevid\\korrektor\\": ""
+    }
+  }
+}
