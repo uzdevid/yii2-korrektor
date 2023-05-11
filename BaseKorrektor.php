@@ -12,9 +12,7 @@ use yii\base\Exception;
 class BaseKorrektor extends Component {
     public string $endpointUrl = 'https://api.korrektor.uz';
 
-    public array $methods = [
-        'Correct' => '/correct/content'
-    ];
+    public string $method;
 
     private string $_token = 'D2~0$oau@Zp{Wy06B!Ye$DmUT(P1Q{$t';
 
@@ -27,13 +25,7 @@ class BaseKorrektor extends Component {
     }
 
     protected function getUrl() {
-        $classname = basename(static::class);
-
-        if (!isset($this->methods[$classname])) {
-            throw new Exception("Uknown class {$classname}");
-        }
-
-        return $this->endpointUrl . $this->methods[$classname];
+        return $this->endpointUrl . $this->method;
     }
 
     protected function curlExecute(string $url, array $postFields) {

@@ -15,6 +15,8 @@ class Correct extends BaseKorrektor {
     private string $_text;
     private array $_mistakes = [];
 
+    public string $method = '/correct/content';
+
     public function isCorrect() {
         if (empty($this->text)) {
             throw new Exception('Text is required');
