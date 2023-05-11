@@ -58,24 +58,19 @@ class Correct extends BaseKorrektor {
         return $this->_mistakes;
     }
 
-    public function hightlight(): string {
-        $offset = 0;
-        $html = "";
+    public function highlight(): string {
+        $replacements = [];
 
         foreach ($this->mistakes as $mistake) {
-            $position = $mistake["position"];
             $misspelled = $mistake["misspelled"];
             $suggestions = implode(', ', $mistake["suggestions"]);
-
-            $html .= substr($this->text, $offset, $position - $offset);
-            $html .= "<span style='color: red;' title='{$suggestions}'>";
-
-            $html .= substr($this->text, $position, strlen($misspelled));
-            $html .= '</span>';
-
-            $offset = $position + strlen($misspelled);
+            $replacement = "<span style='color: red;' title='{$suggestions}'>$misspelled</span>";
+            $replacements[$misspelled] = $replacement;
         }
+
+        $html = str_replace(array_keys($replacements), array_values($replacements), $this->text);
 
         return $html;
     }
+
 }
